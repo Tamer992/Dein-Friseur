@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dein Barber</title>
+
+<!-- Calendly Widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+<style>
 /* --- Grunddesign --- */
 * { box-sizing: border-box; margin:0; padding:0; font-family: 'Inter', sans-serif; }
 body { line-height:1.5; color:#111; background:#fff; }
@@ -100,3 +112,56 @@ footer { text-align:center; padding:40px; color:#777; font-size:0.9rem; }
   .hero-content h1 { font-size:2.2rem; }
   .hero-content p { font-size:1rem; }
 }
+</style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Dein Barber. Dein Style.</h1>
+    <p>Buche jetzt deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte.</p>
+    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">Termin buchen</button>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+  <h2>Unsere Services</h2>
+  <div class="services-grid">
+    <div class="service-card"><h3>Herrenhaarschnitt</h3>Professionell & modern</div>
+    <div class="service-card"><h3>Bart & Kontur</h3>Perfekte Linien</div>
+    <div class="service-card"><h3>Styling & Pflege</h3>Für jeden Look</div>
+    <div class="service-card"><h3>Persönliche Beratung</h3>Individuell auf dich</div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products" id="produkte">
+  <h2>Unsere Produkte</h2>
+  <div class="products-grid">
+    <div class="product-card">
+      <img src="assets/arthur-humeau-Twd3yaqA2NM-unsplash.jpg" alt="Premium Shampoo">
+      <h4>Premium Shampoo</h4>
+      <p>Im Salon erhältlich</p>
+    </div>
+    <div class="product-card">
+      <img src="assets/agustin-fernandez-1Pmp9uxK8X8-unsplash.jpg" alt="Styling Pomade">
+      <h4>Styling Pomade</h4>
+      <p>Im Salon erhältlich</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Bereit für deinen nächsten Look?</h2>
+  <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">Jetzt Termin buchen</button>
+</section>
+
+<!-- Footer -->
+<footer>© 2025 Dein Barber</footer>
+
+</body>
+</html>
