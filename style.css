@@ -2,17 +2,18 @@
 
 /* --- Grunddesign --- */
 * { box-sizing: border-box; margin:0; padding:0; font-family:'Poppins', sans-serif; }
-body { line-height:1.5; color:#111; background:#fff; }
+body { line-height:1.5; color:#111; background:#fff; scroll-behavior: smooth; }
 a { text-decoration:none; color:inherit; }
 
 /* --- Hero --- */
 .hero {
   position: relative;
   height: 100vh;
-  background: url('assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg') center/cover no-repeat;
+  background: url('assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg') center/cover no-repeat fixed;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .hero-overlay {
   position: absolute;
@@ -25,6 +26,7 @@ a { text-decoration:none; color:inherit; }
   text-align: center;
   max-width: 800px;
   padding: 0 20px;
+  animation: fadeInDown 1s ease-out forwards;
 }
 .hero-content h1 { font-size:3.5rem; font-weight:700; margin-bottom:1rem; }
 .hero-content p { font-size:1.25rem; margin-bottom:2rem; }
@@ -35,7 +37,8 @@ a { text-decoration:none; color:inherit; }
 .hero-content button:hover { background:#e6c200; }
 
 /* --- Sections --- */
-section { padding:80px 20px; max-width:1200px; margin:auto; }
+section { padding:80px 20px; max-width:1200px; margin:auto; opacity:0; transform: translateY(40px); transition: all 0.8s ease; }
+section.visible { opacity:1; transform: translateY(0); }
 section h2 { text-align:center; margin-bottom:3rem; font-size:2.5rem; font-weight:600; color:#111; }
 
 /* --- Services --- */
@@ -59,23 +62,5 @@ section h2 { text-align:center; margin-bottom:3rem; font-size:2.5rem; font-weigh
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .product-card:hover { transform: translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
-.product-card img { width:100%; height:200px; object-fit:cover; border-radius:20px 20px 0 0; }
-.product-card h4 { margin:0.75rem 0 0.5rem; font-size:1.1rem; font-weight:600; }
-.product-card p { margin-bottom:1rem; color:#555; }
-
-/* --- CTA --- */
-.cta { background:#111; color:#fff; text-align:center; padding:80px 20px; border-radius:20px; margin:80px 0; }
-.cta button {
-  background:#FFD700; color:#111; padding:1rem 2.5rem; border:none; border-radius:50px;
-  cursor:pointer; font-size:1.2rem; font-weight:600; transition:0.3s;
-}
-.cta button:hover { background:#e6c200; }
-
-/* --- Footer --- */
-footer { text-align:center; padding:50px; color:#777; font-size:0.9rem; }
-
-/* --- Responsive --- */
-@media(max-width:768px) {
-  .hero-content h1 { font-size:2.5rem; }
-  .hero-content p { font-size:1rem; }
-}
+.product-card img { width:100%; height:200px; object-fit:cover; border-radius:20px 20px 0 0; transition: transform 0.5s; }
+.product-c
