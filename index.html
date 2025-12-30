@@ -5,21 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dein Barber</title>
 
-<!-- CSS -->
 <link rel="stylesheet" href="style.css">
 
-<!-- Calendly Widget -->
+<!-- Calendly -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 </head>
 <body>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Dein Barber. Dein Style.</h1>
-    <p>Buche jetzt deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte.</p>
+    <p>Buche deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte.</p>
     <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">Termin buchen</button>
   </div>
 </section>
@@ -28,22 +27,10 @@
 <section class="services">
   <h2>Unsere Services</h2>
   <div class="services-grid">
-    <div class="service-card">
-      <h3>Herrenhaarschnitt</h3>
-      <p>Professionell & modern</p>
-    </div>
-    <div class="service-card">
-      <h3>Bart & Kontur</h3>
-      <p>Perfekte Linien</p>
-    </div>
-    <div class="service-card">
-      <h3>Styling & Pflege</h3>
-      <p>Für jeden Look</p>
-    </div>
-    <div class="service-card">
-      <h3>Persönliche Beratung</h3>
-      <p>Individuell auf dich</p>
-    </div>
+    <div class="service-card"><h3>Herrenhaarschnitt</h3><p>Professionell & modern</p></div>
+    <div class="service-card"><h3>Bart & Kontur</h3><p>Perfekte Linien</p></div>
+    <div class="service-card"><h3>Styling & Pflege</h3><p>Für jeden Look</p></div>
+    <div class="service-card"><h3>Persönliche Beratung</h3><p>Individuell auf dich</p></div>
   </div>
 </section>
 
@@ -61,6 +48,11 @@
       <h4>Styling Pomade</h4>
       <p>Im Salon erhältlich</p>
     </div>
+    <div class="product-card">
+      <img src="assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg" alt="Pflegeprodukt">
+      <h4>Pflegeprodukt</h4>
+      <p>Im Salon erhältlich</p>
+    </div>
   </div>
 </section>
 
@@ -72,6 +64,18 @@
 
 <!-- Footer -->
 <footer>© 2025 Dein Barber</footer>
+
+<script>
+// Scroll Animation für Sections
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+  });
+},{ threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
