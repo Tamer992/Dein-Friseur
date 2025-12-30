@@ -9,17 +9,141 @@
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
-<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero img {
+  width: 45%;
+  border-radius: 16px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+
+button {
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.primary {
+  background: #000;
+  color: #fff;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #000;
+}
+
+.grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.card {
+  flex: 1 1 200px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #f4f4f4;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.cta {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.cta button {
+  background: #fff;
+  color: #000;
+  margin-top: 16px;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero img {
+    width: 100%;
+  }
+  .hero-text h1 {
+    font-size: 36px;
+  }
+}
+</style>
 </head>
 <body>
 
 <section class="hero">
-  <div>
+  <div class="hero-text">
     <h1>Dein Barber. Dein Style.</h1>
     <p>Buche deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte – modern, professionell, unkompliziert.</p>
-    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">Termin buchen</button>
+    <div class="buttons">
+      <button class="primary" onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">
+        Termin buchen
+      </button>
+      <button class="secondary" onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})">
+        Produkte entdecken
+      </button>
+    </div>
   </div>
-  <img src="assets/hero.jpg" alt="Barbershop">
+  <img src="https://images.unsplash.com/photo-1573495628360-3d40e58a8f64?auto=format&fit=crop&w=900&q=80" alt="Barbershop">
 </section>
 
 <section>
@@ -35,15 +159,29 @@
 <section id="produkte">
   <h2>Pflege, die bleibt</h2>
   <div class="grid">
-    <div class="card">Premium Shampoo</div>
-    <div class="card">Styling Pomade</div>
-    <div class="card">Beard Oil</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1611095564985-89765398121e?auto=format&fit=crop&w=600&q=80" alt="Premium Shampoo">
+      <strong>Premium Shampoo</strong>
+      <p>Im Salon erhältlich</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1601071479587-43372f347f56?auto=format&fit=crop&w=600&q=80" alt="Styling Pomade">
+      <strong>Styling Pomade</strong>
+      <p>Im Salon erhältlich</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?auto=format&fit=crop&w=600&q=80" alt="Beard Oil">
+      <strong>Beard Oil</strong>
+      <p>Im Salon erhältlich</p>
+    </div>
   </div>
 </section>
 
 <section class="cta">
   <h2>Bereit für deinen nächsten Look?</h2>
-  <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">Jetzt Termin buchen</button>
+  <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">
+    Jetzt Termin buchen
+  </button>
 </section>
 
 <footer>© 2025 Dein Barber</footer>
