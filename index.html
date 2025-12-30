@@ -1,88 +1,102 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dein Barber</title>
+/* --- Grunddesign --- */
+* { box-sizing: border-box; margin:0; padding:0; font-family: 'Inter', sans-serif; }
+body { line-height:1.5; color:#111; background:#fff; }
+a { text-decoration:none; color:inherit; }
 
-<!-- Calendly Widget -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+/* --- Hero --- */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+}
+.hero-content {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+}
+.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero-content p { font-size:1.25rem; margin-bottom: 2rem; }
+.hero-content button {
+  padding: 0.75rem 2rem;
+  font-size:1rem;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#fff;
+  color:#111;
+  transition: 0.3s;
+}
+.hero-content button:hover { background:#f0f0f0; }
 
-<style>
-body { font-family: Inter, sans-serif; margin:0; padding:0; line-height:1.5; }
-section { padding:60px 20px; max-width:1200px; margin:auto; }
-.hero { display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap; }
-.hero img { width:45%; border-radius:16px; }
-.hero-text { flex:1; }
-.hero-text h1 { font-size:48px; margin-bottom:16px; }
-.hero-text p { font-size:18px; margin-bottom:24px; }
-.buttons { display:flex; gap:16px; }
-button { padding:14px 24px; border-radius:8px; border:none; cursor:pointer; font-size:16px; }
-.primary { background:#000; color:#fff; }
-.secondary { background:transparent; border:1px solid #000; }
-.grid { display:flex; gap:24px; flex-wrap:wrap; margin-top:24px; }
-.card { flex:1 1 200px; padding:24px; border-radius:12px; background:#f4f4f4; text-align:center; }
-.card img { width:100%; object-fit:cover; border-radius:12px; margin-bottom:12px; }
-.cta { background:#000; color:#fff; text-align:center; border-radius:16px; }
-.cta button { background:#fff; color:#000; margin-top:16px; }
-footer { text-align:center; padding:40px; color:#777; }
-@media (max-width:900px) { .hero { flex-direction:column-reverse; text-align:center; } .hero img { width:100%; } .hero-text h1 { font-size:36px; } }
-</style>
-</head>
-<body>
+/* --- Services Section --- */
+section { padding: 80px 20px; max-width: 1200px; margin:auto; }
+.services h2, .products h2, .cta h2 { text-align:center; margin-bottom:2rem; font-size:2rem; }
+.services-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+}
+.service-card {
+  background:#f4f4f4;
+  padding:2rem;
+  border-radius:12px;
+  text-align:center;
+  transition: transform 0.3s;
+}
+.service-card:hover { transform: translateY(-5px); }
+.service-card h3 { margin-bottom:0.5rem; font-size:1.25rem; }
 
-<section class="hero">
-  <div class="hero-text">
-    <h1>Dein Barber. Dein Style.</h1>
-    <p>Buche deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte – modern, professionell, unkompliziert.</p>
-    <div class="buttons">
-      <button class="primary" onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">
-        Termin buchen
-      </button>
-      <button class="secondary" onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})">
-        Produkte entdecken
-      </button>
-    </div>
-  </div>
-  <img src="assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg" alt="Barbershop">
-</section>
+/* --- Products Section --- */
+.products-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+}
+.product-card {
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+  text-align:center;
+}
+.product-card img { width:100%; height:250px; object-fit:cover; }
+.product-card h4 { margin:1rem 0 0.5rem; font-size:1.1rem; }
+.product-card p { margin-bottom:1rem; font-size:0.9rem; color:#555; }
 
-<section>
-  <h2>Unsere Services</h2>
-  <div class="grid">
-    <div class="card">Herrenhaarschnitt</div>
-    <div class="card">Bart & Kontur</div>
-    <div class="card">Styling & Pflege</div>
-    <div class="card">Persönliche Beratung</div>
-  </div>
-</section>
+/* --- CTA --- */
+.cta {
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+  border-radius:12px;
+  margin:80px 0;
+}
+.cta button {
+  background:#fff;
+  color:#111;
+  padding:0.75rem 2rem;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:1rem;
+  transition:0.3s;
+}
+.cta button:hover { background:#f0f0f0; }
 
-<section id="produkte">
-  <h2>Pflege, die bleibt</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="assets/arthur-humeau-Twd3yaqA2NM-unsplash.jpg" alt="Premium Shampoo">
-      <strong>Premium Shampoo</strong>
-      <p>Im Salon erhältlich</p>
-    </div>
-    <div class="card">
-      <img src="assets/agustin-fernandez-1Pmp9uxK8X8-unsplash.jpg" alt="Styling Pomade">
-      <strong>Styling Pomade</strong>
-      <p>Im Salon erhältlich</p>
-    </div>
-  </div>
-</section>
+/* --- Footer --- */
+footer { text-align:center; padding:40px; color:#777; font-size:0.9rem; }
 
-<section class="cta">
-  <h2>Bereit für deinen nächsten Look?</h2>
-  <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">
-    Jetzt Termin buchen
-  </button>
-</section>
-
-<footer>© 2025 Dein Barber</footer>
-
-</body>
-</html>
-
+/* --- Responsive --- */
+@media(max-width:768px) {
+  .hero-content h1 { font-size:2.2rem; }
+  .hero-content p { font-size:1rem; }
+}
