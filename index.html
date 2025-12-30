@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dein Barber</title>
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+  <div>
+    <h1>Dein Barber. Dein Style.</h1>
+    <p>Buche deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte – modern, professionell, unkompliziert.</p>
+    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">Termin buchen</button>
+  </div>
+  <img src="assets/hero.jpg" alt="Barbershop">
+</section>
+
+<section>
+  <h2>Unsere Services</h2>
+  <div class="grid">
+    <div class="card">Herrenhaarschnitt</div>
+    <div class="card">Bart & Kontur</div>
+    <div class="card">Styling & Pflege</div>
+    <div class="card">Persönliche Beratung</div>
+  </div>
+</section>
+
+<section id="produkte">
+  <h2>Pflege, die bleibt</h2>
+  <div class="grid">
+    <div class="card">Premium Shampoo</div>
+    <div class="card">Styling Pomade</div>
+    <div class="card">Beard Oil</div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Bereit für deinen nächsten Look?</h2>
+  <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' })">Jetzt Termin buchen</button>
+</section>
+
+<footer>© 2025 Dein Barber</footer>
+
+</body>
+</html>
