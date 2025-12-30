@@ -5,114 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dein Barber</title>
 
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
 <!-- Calendly Widget -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js"></script>
-
-<style>
-/* --- Grunddesign --- */
-* { box-sizing: border-box; margin:0; padding:0; font-family: 'Inter', sans-serif; }
-body { line-height:1.5; color:#111; background:#fff; }
-a { text-decoration:none; color:inherit; }
-
-/* --- Hero --- */
-.hero {
-  position: relative;
-  height: 100vh;
-  background: url('assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.hero-overlay {
-  position: absolute;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.5);
-}
-.hero-content {
-  position: relative;
-  color: #fff;
-  text-align: center;
-  padding: 0 20px;
-}
-.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
-.hero-content p { font-size:1.25rem; margin-bottom: 2rem; }
-.hero-content button {
-  padding: 0.75rem 2rem;
-  font-size:1rem;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  background:#fff;
-  color:#111;
-  transition: 0.3s;
-}
-.hero-content button:hover { background:#f0f0f0; }
-
-/* --- Services Section --- */
-section { padding: 80px 20px; max-width: 1200px; margin:auto; }
-.services h2, .products h2, .cta h2 { text-align:center; margin-bottom:2rem; font-size:2rem; }
-.services-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap:2rem;
-}
-.service-card {
-  background:#f4f4f4;
-  padding:2rem;
-  border-radius:12px;
-  text-align:center;
-  transition: transform 0.3s;
-}
-.service-card:hover { transform: translateY(-5px); }
-.service-card h3 { margin-bottom:0.5rem; font-size:1.25rem; }
-
-/* --- Products Section --- */
-.products-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap:2rem;
-}
-.product-card {
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 4px 8px rgba(0,0,0,0.1);
-  text-align:center;
-}
-.product-card img { width:100%; height:250px; object-fit:cover; }
-.product-card h4 { margin:1rem 0 0.5rem; font-size:1.1rem; }
-.product-card p { margin-bottom:1rem; font-size:0.9rem; color:#555; }
-
-/* --- CTA --- */
-.cta {
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:60px 20px;
-  border-radius:12px;
-  margin:80px 0;
-}
-.cta button {
-  background:#fff;
-  color:#111;
-  padding:0.75rem 2rem;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:1rem;
-  transition:0.3s;
-}
-.cta button:hover { background:#f0f0f0; }
-
-/* --- Footer --- */
-footer { text-align:center; padding:40px; color:#777; font-size:0.9rem; }
-
-/* --- Responsive --- */
-@media(max-width:768px) {
-  .hero-content h1 { font-size:2.2rem; }
-  .hero-content p { font-size:1rem; }
-}
-</style>
 </head>
 <body>
 
@@ -130,10 +28,22 @@ footer { text-align:center; padding:40px; color:#777; font-size:0.9rem; }
 <section class="services">
   <h2>Unsere Services</h2>
   <div class="services-grid">
-    <div class="service-card"><h3>Herrenhaarschnitt</h3>Professionell & modern</div>
-    <div class="service-card"><h3>Bart & Kontur</h3>Perfekte Linien</div>
-    <div class="service-card"><h3>Styling & Pflege</h3>Für jeden Look</div>
-    <div class="service-card"><h3>Persönliche Beratung</h3>Individuell auf dich</div>
+    <div class="service-card">
+      <h3>Herrenhaarschnitt</h3>
+      <p>Professionell & modern</p>
+    </div>
+    <div class="service-card">
+      <h3>Bart & Kontur</h3>
+      <p>Perfekte Linien</p>
+    </div>
+    <div class="service-card">
+      <h3>Styling & Pflege</h3>
+      <p>Für jeden Look</p>
+    </div>
+    <div class="service-card">
+      <h3>Persönliche Beratung</h3>
+      <p>Individuell auf dich</p>
+    </div>
   </div>
 </section>
 
