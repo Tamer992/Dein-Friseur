@@ -157,7 +157,7 @@
 
 <!-- JS -->
 <script>
-let selectedService = "";
+let selectedService = "Haarschnitt"; // Standard-Service
 const productMap = {
   "Haarschnitt": "Styling Pomade, Leave-in Conditioner, Bartöl",
   "Färben": "Color-Schutz Shampoo, Farbschutz Maske, Hitzeschutzspray",
@@ -165,44 +165,54 @@ const productMap = {
   "Styling": "Styling Cream, Haarspray, Texturizing Spray"
 };
 
-function selectService(service){
-  document.getElementById("serviceDropdown").value = service;
-  updatePreview();
+function updateWhatsAppLink() {
+  const text = `Hallo Dein Barber, ich habe Service: ${selectedService} gebucht. Bitte sende mir eine Erinnerung 24h vorher. Empfohlene Produkte: ${productMap[selectedService]}`;
+  const encodedText = encodeURIComponent(text);
+  const waNumber = "491717439527"; // Deine Nummer hier
+  document.getElementById("whatsappLink").href = `https://wa.me/${waNumber}?text=${encodedText}`;
+  document.getElementById("floatingWhatsApp").href = `https://wa.me/${waNumber}?text=${encodedText}`;
 }
 
-function updatePreview(){
+function updatePreview() {
   const dropdown = document.getElementById("serviceDropdown");
-  const service = dropdown.value;
-  if(!service) return;
+  const service = dropdown.value || "Haarschnitt";
   selectedService = service;
 
   const text = `Hallo Dein Barber, ich habe Service: ${service} gebucht. Bitte sende mir eine Erinnerung 24h vorher. Empfohlene Produkte: ${productMap[service]}`;
   document.getElementById("messagePreview").innerText = text;
   document.getElementById("recommendedProducts").innerText = `Empfohlene Produkte für ${service}: ${productMap[service]}`;
+  
+  updateWhatsAppLink();
+}
 
-  const encodedText = encodeURIComponent(text);
-  const waNumber = "491717439527"; // Deine Nummer
-  document.getElementById("whatsappLink").href = `https://wa.me/${waNumber}?text=${encodedText}`;
-  document.getElementById("floatingWhatsApp").href = `https://wa.me/${waNumber}?text=${encodedText}`;
+function selectService(service){
+  document.getElementById("serviceDropdown").value = service;
+  updatePreview();
 }
 
 function activateEmailReminder(e){
   e.preventDefault();
   const email = document.getElementById("emailInput").value;
-  if(!email || !selectedService) return alert("Bitte wähle zuerst einen Service.");
+  if(!email) return alert("Bitte wähle zuerst einen Service.");
   document.getElementById("emailSuccess").style.display = "block";
+
   const timeline = document.querySelectorAll(".email-timeline span");
   timeline[1].classList.add("active");
   setTimeout(()=>timeline[2].classList.add("active"),1000);
+
   localStorage.setItem("emailReminder", JSON.stringify({email, service:selectedService}));
 }
 
-document.querySelectorAll("section").forEach(section=>{
-  new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add("visible");});
-  },{threshold:0.2}).observe(section);
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("serviceDropdown").value = selectedService;
+  updatePreview();
+
+  document.querySelectorAll("section").forEach(section=>{
+    new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add("visible");});
+    },{threshold:0.2}).observe(section);
+  });
 });
 </script>
 </body>
 </html>
-
