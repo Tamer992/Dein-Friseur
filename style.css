@@ -9,12 +9,12 @@
   position: relative; 
   overflow: hidden; 
 }
-.cta h2 { 
-  position:relative; 
-  z-index:1; 
-  margin-bottom:2rem; 
-  font-size:2.5rem; 
-  color:#FFD700;        /* hell/gold für gute Lesbarkeit */
+.cta h2 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #FFD700; /* Gold */
 }
 .cta button {
   background:#FFD700; 
@@ -35,3 +35,4 @@
   transform: scale(1.05); 
   box-shadow:0 0 30px rgba(255,215,0,0.9); 
 }
+
