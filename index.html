@@ -53,7 +53,7 @@
   </div>
 </section>
 
-<!-- PRODUKTE -->
+<!-- PRODUCTS -->
 <section class="products">
   <h2>Unsere Produkte</h2>
   <div class="products-grid">
@@ -85,7 +85,7 @@
     </button>
 
     <a
-      href="https://wa.me/4917174395277439527?text=Hallo%20Dein%20Barber,%20ich%20möchte%20eine%20WhatsApp-Erinnerung%2024h%20vor%20meinem%20Termin."
+      href="https://wa.me/491717439527?text=Hallo%20Dein%20Barber,%20ich%20möchte%20eine%20WhatsApp-Erinnerung%2024h%20vor%20meinem%20Termin."
       target="_blank"
       class="whatsapp-btn"
     >
@@ -97,7 +97,7 @@
   <p class="cta-note">Erinnerungen erfolgen automatisch per WhatsApp</p>
 </section>
 
-<!-- EMAIL REMINDER INTEGRATED -->
+<!-- EMAIL REMINDER -->
 <section class="email-reminder">
   <div class="email-card">
     <h2>E-Mail Erinnerung aktivieren</h2>
@@ -128,7 +128,6 @@
   </div>
 </section>
 
-  
 <!-- CONFIRMATION -->
 <section class="confirmation">
   <div class="confirmation-card">
@@ -189,14 +188,31 @@
 
 <!-- FLOATING WHATSAPP -->
 <a
-  href="https://wa.me/4917174395277439527"
+  href="https://wa.me/491717439527"
   class="whatsapp-float"
   target="_blank"
 >
   <i class="fab fa-whatsapp"></i>
 </a>
 
+<!-- JS -->
 <script>
+function activateEmailReminder(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("emailInput").value;
+  if (!email) return;
+
+  document.getElementById("emailSuccess").style.display = "block";
+
+  // Timeline aktivieren
+  const timeline = document.querySelectorAll(".email-timeline span");
+  timeline[1].classList.add("active");
+
+  // Optional: localStorage für Demo
+  localStorage.setItem("emailReminder", email);
+}
+
 const sections=document.querySelectorAll("section");
 const observer=new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible")),{threshold:.2});
 sections.forEach(s=>observer.observe(s));
@@ -204,6 +220,3 @@ sections.forEach(s=>observer.observe(s));
 
 </body>
 </html>
-
-
-
