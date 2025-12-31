@@ -14,56 +14,62 @@
 </head>
 <body>
 
-<!-- Hero -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Dein Barber. Dein Style.</h1>
-    <p>Buche deinen Friseurtermin online oder entdecke unsere hochwertigen Pflegeprodukte.</p>
-    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">Termin buchen</button>
+    <p>Buche deinen Termin online oder erhalte Erinnerungen bequem per WhatsApp.</p>
+    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">
+      Termin buchen
+    </button>
   </div>
 </section>
 
-<!-- Services -->
+<!-- SERVICES -->
 <section class="services">
   <h2>Unsere Services</h2>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon"><i class="fas fa-cut"></i></div>
-      <h3>Herrenhaarschnitt</h3><p>Professionell & modern</p>
+      <i class="fas fa-cut service-icon"></i>
+      <h3>Herrenhaarschnitt</h3>
+      <p>Modern & präzise</p>
     </div>
     <div class="service-card">
-      <div class="service-icon"><i class="fas fa-beard"></i></div>
-      <h3>Bart & Kontur</h3><p>Perfekte Linien</p>
+      <i class="fas fa-beard service-icon"></i>
+      <h3>Bart & Kontur</h3>
+      <p>Perfekte Linien</p>
     </div>
     <div class="service-card">
-      <div class="service-icon"><i class="fas fa-spa"></i></div>
-      <h3>Styling & Pflege</h3><p>Für jeden Look</p>
+      <i class="fas fa-spa service-icon"></i>
+      <h3>Styling & Pflege</h3>
+      <p>Premium Produkte</p>
     </div>
     <div class="service-card">
-      <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-      <h3>Persönliche Beratung</h3><p>Individuell auf dich</p>
+      <i class="fas fa-user-tie service-icon"></i>
+      <h3>Beratung</h3>
+      <p>Individuell</p>
     </div>
   </div>
 </section>
 
-<!-- Products -->
-<section class="products" id="produkte">
+<!-- PRODUKTE -->
+<section class="products">
   <h2>Unsere Produkte</h2>
   <div class="products-grid">
     <div class="product-card">
-      <img src="assets/arthur-humeau-Twd3yaqA2NM-unsplash.jpg" alt="Premium Shampoo">
+      <img src="assets/arthur-humeau-Twd3yaqA2NM-unsplash.jpg">
       <h4>Premium Shampoo</h4>
       <p>Im Salon erhältlich</p>
     </div>
     <div class="product-card">
-      <img src="assets/agustin-fernandez-1Pmp9uxK8X8-unsplash.jpg" alt="Styling Pomade">
+      <img src="assets/agustin-fernandez-1Pmp9uxK8X8-unsplash.jpg">
       <h4>Styling Pomade</h4>
       <p>Im Salon erhältlich</p>
     </div>
     <div class="product-card">
-      <img src="assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg" alt="Pflegeprodukt">
-      <h4>Pflegeprodukt</h4>
+      <img src="assets/apothecary-87-Wg3J83R1YSQ-unsplash.jpg">
+      <h4>Pflegeprodukte</h4>
       <p>Im Salon erhältlich</p>
     </div>
   </div>
@@ -71,22 +77,97 @@
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Bereit für deinen nächsten Look?</h2>
-  <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">Jetzt Termin buchen</button>
+  <h2>Bereit für deinen perfekten Look?</h2>
+
+  <div class="cta-actions">
+    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">
+      Termin buchen
+    </button>
+
+    <a
+      href="https://wa.me/491234567890?text=Hallo%20Dein%20Barber,%20ich%20möchte%20eine%20WhatsApp-Erinnerung%2024h%20vor%20meinem%20Termin."
+      target="_blank"
+      class="whatsapp-btn"
+    >
+      <i class="fab fa-whatsapp"></i>
+      WhatsApp Erinnerung
+    </a>
+  </div>
+
+  <p class="cta-note">Erinnerungen erfolgen automatisch per WhatsApp</p>
 </section>
 
-<!-- Footer -->
-<footer>© 2025 Dein Barber</footer>
+<!-- CONFIRMATION -->
+<section class="confirmation">
+  <div class="confirmation-card">
+    <div class="confirmation-icon">✓</div>
+    <h2>Termin erfolgreich angefragt</h2>
+    <p>Deine Anfrage wurde erfasst. Du erhältst rechtzeitig eine Erinnerung.</p>
+
+    <div class="confirmation-badges">
+      <span>📅 Calendly verbunden</span>
+      <span>💬 WhatsApp aktiv</span>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dashboard">
+  <div class="dashboard-card">
+    <h2>Dein nächster Termin</h2>
+    <div class="dashboard-grid">
+      <div class="dashboard-item">
+        <span class="label">Service</span>
+        <span class="value">Herrenhaarschnitt</span>
+      </div>
+      <div class="dashboard-item">
+        <span class="label">Status</span>
+        <span class="value success">Bestätigt ✓</span>
+      </div>
+      <div class="dashboard-item">
+        <span class="label">Erinnerung</span>
+        <span class="value success">WhatsApp · 24h vorher</span>
+      </div>
+      <div class="dashboard-item">
+        <span class="label">Buchung</span>
+        <span class="value">Calendly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Dein Barber</h4>
+      <p>Premium Herrenfriseur für moderne Styles.</p>
+    </div>
+    <div>
+      <h4>Öffnungszeiten</h4>
+      <p>Mo–Fr 09–19 Uhr<br>Sa 09–16 Uhr</p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <p>Termin & WhatsApp online</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 Dein Barber</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a
+  href="https://wa.me/491234567890"
+  class="whatsapp-float"
+  target="_blank"
+>
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
-// Scroll Animation
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-  });
-},{ threshold: 0.2 });
-sections.forEach(section => observer.observe(section));
+const sections=document.querySelectorAll("section");
+const observer=new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible")),{threshold:.2});
+sections.forEach(s=>observer.observe(s));
 </script>
 
 </body>
