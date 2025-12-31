@@ -68,9 +68,19 @@
   <p class="cta-note">Erinnerungen erfolgen automatisch per WhatsApp & E-Mail</p>
 </section>
 
-<!-- LIVE VORSCHAU -->
+<!-- LIVE VORSCHAU MIT DROPDOWN -->
 <section class="preview">
   <h2>Live-Vorschau deiner Nachricht</h2>
+  <div class="service-select">
+    <label for="serviceDropdown">Service auswählen:</label>
+    <select id="serviceDropdown" onchange="updatePreview()">
+      <option value="">-- Wähle deinen Service --</option>
+      <option value="Haarschnitt">Herrenhaarschnitt</option>
+      <option value="Färben">Färben</option>
+      <option value="Bartpflege">Bartpflege</option>
+      <option value="Styling">Styling & Finish</option>
+    </select>
+  </div>
   <div id="messagePreview" class="message-preview">
     Bitte wähle zuerst einen Service, um die Nachricht zu sehen.
   </div>
@@ -156,48 +166,40 @@ const productMap = {
 };
 
 function selectService(service){
-  selectedService = service;
-  document.getElementById("dashboardService")?.innerText = service;
+  document.getElementById("serviceDropdown").value = service;
+  updatePreview();
+}
 
-  // WhatsApp Link anpassen
-  const whatsappLink = document.getElementById("whatsappLink");
-  const floatingLink = document.getElementById("floatingWhatsApp");
+function updatePreview(){
+  const dropdown = document.getElementById("serviceDropdown");
+  const service = dropdown.value;
+  if(!service) return;
+  selectedService = service;
+
   const text = `Hallo Dein Barber, ich habe Service: ${service} gebucht. Bitte sende mir eine Erinnerung 24h vorher. Empfohlene Produkte: ${productMap[service]}`;
+  document.getElementById("messagePreview").innerText = text;
+  document.getElementById("recommendedProducts").innerText = `Empfohlene Produkte für ${service}: ${productMap[service]}`;
+
   const encodedText = encodeURIComponent(text);
   const waNumber = "491234567890"; // Deine Nummer
-  whatsappLink.href = `https://wa.me/${waNumber}?text=${encodedText}`;
-  floatingLink.href = `https://wa.me/${waNumber}?text=${encodedText}`;
-
-  // Produkte in E-Mail Anzeige vorbereiten
-  const prodDiv = document.getElementById("recommendedProducts");
-  prodDiv.innerText = `Empfohlene Produkte für ${service}: ${productMap[service]}`;
-
-  // Live-Vorschau aktualisieren
-  const previewDiv = document.getElementById("messagePreview");
-  previewDiv.innerText = text;
+  document.getElementById("whatsappLink").href = `https://wa.me/${waNumber}?text=${encodedText}`;
+  document.getElementById("floatingWhatsApp").href = `https://wa.me/${waNumber}?text=${encodedText}`;
 }
 
 function activateEmailReminder(e){
   e.preventDefault();
   const email = document.getElementById("emailInput").value;
   if(!email || !selectedService) return alert("Bitte wähle zuerst einen Service.");
-
-  const success = document.getElementById("emailSuccess");
-  success.style.display = "block";
-
+  document.getElementById("emailSuccess").style.display = "block";
   const timeline = document.querySelectorAll(".email-timeline span");
   timeline[1].classList.add("active");
   setTimeout(()=>timeline[2].classList.add("active"),1000);
-
   localStorage.setItem("emailReminder", JSON.stringify({email, service:selectedService}));
 }
 
-// Fade-in Animation
 document.querySelectorAll("section").forEach(section=>{
   new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting) entry.target.classList.add("visible");
-    });
+    entries.forEach(entry=>{if(entry.isIntersecting) entry.target.classList.add("visible");});
   },{threshold:0.2}).observe(section);
 });
 </script>
