@@ -97,6 +97,38 @@
   <p class="cta-note">Erinnerungen erfolgen automatisch per WhatsApp</p>
 </section>
 
+<!-- EMAIL REMINDER INTEGRATED -->
+<section class="email-reminder">
+  <div class="email-card">
+    <h2>E-Mail Erinnerung aktivieren</h2>
+    <p>
+      Erhalte automatisch eine Erinnerungs-E-Mail  
+      <strong>24 Stunden vor deinem Termin</strong>.
+    </p>
+
+    <form class="email-form" onsubmit="activateEmailReminder(event)">
+      <input
+        type="email"
+        id="emailInput"
+        placeholder="Deine E-Mail-Adresse"
+        required
+      >
+      <button type="submit">Erinnerung aktivieren</button>
+    </form>
+
+    <div class="email-success" id="emailSuccess">
+      ✓ E-Mail-Erinnerung aktiviert
+    </div>
+
+    <div class="email-timeline">
+      <span class="active">Heute</span>
+      <span>24h vorher</span>
+      <span>Termin</span>
+    </div>
+  </div>
+</section>
+
+  
 <!-- CONFIRMATION -->
 <section class="confirmation">
   <div class="confirmation-card">
@@ -172,5 +204,6 @@ sections.forEach(s=>observer.observe(s));
 
 </body>
 </html>
+
 
 
