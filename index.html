@@ -19,7 +19,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1>Dein Barber. Dein Style.</h1>
-    <p>Buche deinen Termin online oder erhalte Erinnerungen bequem per WhatsApp.</p>
+    <p>Buche online oder erhalte Erinnerungen bequem per WhatsApp & E-Mail.</p>
     <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">
       Termin buchen
     </button>
@@ -28,28 +28,74 @@
 
 <!-- SERVICES -->
 <section class="services">
-  <h2>Unsere Services</h2>
+  <h2>Wähle deinen Service</h2>
   <div class="services-grid">
-    <div class="service-card">
+    <div class="service-card" onclick="selectService('Haarschnitt')">
       <i class="fas fa-cut service-icon"></i>
       <h3>Herrenhaarschnitt</h3>
       <p>Modern & präzise</p>
     </div>
-    <div class="service-card">
+    <div class="service-card" onclick="selectService('Färben')">
+      <i class="fas fa-paint-roller service-icon"></i>
+      <h3>Färben</h3>
+      <p>Farbe nach Wunsch</p>
+    </div>
+    <div class="service-card" onclick="selectService('Bartpflege')">
       <i class="fas fa-beard service-icon"></i>
       <h3>Bart & Kontur</h3>
       <p>Perfekte Linien</p>
     </div>
-    <div class="service-card">
+    <div class="service-card" onclick="selectService('Styling')">
       <i class="fas fa-spa service-icon"></i>
-      <h3>Styling & Pflege</h3>
-      <p>Premium Produkte</p>
+      <h3>Styling & Finish</h3>
+      <p>Für den perfekten Look</p>
     </div>
-    <div class="service-card">
-      <i class="fas fa-user-tie service-icon"></i>
-      <h3>Beratung</h3>
-      <p>Individuell</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Bereit für deinen perfekten Look?</h2>
+  <div class="cta-actions">
+    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">
+      Termin buchen
+    </button>
+    <a id="whatsappLink" href="#" target="_blank" class="whatsapp-btn">
+      <i class="fab fa-whatsapp"></i>
+      WhatsApp Erinnerung
+    </a>
+  </div>
+  <p class="cta-note">Erinnerungen erfolgen automatisch per WhatsApp & E-Mail</p>
+</section>
+
+<!-- LIVE VORSCHAU -->
+<section class="preview">
+  <h2>Live-Vorschau deiner Nachricht</h2>
+  <div id="messagePreview" class="message-preview">
+    Bitte wähle zuerst einen Service, um die Nachricht zu sehen.
+  </div>
+</section>
+
+<!-- EMAIL REMINDER -->
+<section class="email-reminder">
+  <div class="email-card">
+    <h2>E-Mail Erinnerung aktivieren</h2>
+    <p>Erhalte automatisch eine Erinnerungs-E-Mail <strong>24 Stunden vor deinem Termin</strong> inklusive Produktempfehlungen.</p>
+
+    <form class="email-form" onsubmit="activateEmailReminder(event)">
+      <input type="email" id="emailInput" placeholder="Deine E-Mail-Adresse" required>
+      <button type="submit">Erinnerung aktivieren</button>
+    </form>
+
+    <div class="email-success" id="emailSuccess">✓ E-Mail-Erinnerung aktiviert</div>
+
+    <div class="email-timeline">
+      <span class="active">Heute</span>
+      <span>24h vorher</span>
+      <span>Termin</span>
     </div>
+
+    <div class="recommended-products" id="recommendedProducts" style="margin-top:20px; font-weight:600; color:#25D366;"></div>
   </div>
 </section>
 
@@ -75,98 +121,6 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>Bereit für deinen perfekten Look?</h2>
-
-  <div class="cta-actions">
-    <button onclick="Calendly.initPopupWidget({ url: 'https://calendly.com/tamer-kumaru/new-meeting' });">
-      Termin buchen
-    </button>
-
-    <a
-      href="https://wa.me/491717439527?text=Hallo%20Dein%20Barber,%20ich%20möchte%20eine%20WhatsApp-Erinnerung%2024h%20vor%20meinem%20Termin."
-      target="_blank"
-      class="whatsapp-btn"
-    >
-      <i class="fab fa-whatsapp"></i>
-      WhatsApp Erinnerung
-    </a>
-  </div>
-
-  <p class="cta-note">Erinnerungen erfolgen automatisch per WhatsApp</p>
-</section>
-
-<!-- EMAIL REMINDER -->
-<section class="email-reminder">
-  <div class="email-card">
-    <h2>E-Mail Erinnerung aktivieren</h2>
-    <p>
-      Erhalte automatisch eine Erinnerungs-E-Mail  
-      <strong>24 Stunden vor deinem Termin</strong>.
-    </p>
-
-    <form class="email-form" onsubmit="activateEmailReminder(event)">
-      <input
-        type="email"
-        id="emailInput"
-        placeholder="Deine E-Mail-Adresse"
-        required
-      >
-      <button type="submit">Erinnerung aktivieren</button>
-    </form>
-
-    <div class="email-success" id="emailSuccess">
-      ✓ E-Mail-Erinnerung aktiviert
-    </div>
-
-    <div class="email-timeline">
-      <span class="active">Heute</span>
-      <span>24h vorher</span>
-      <span>Termin</span>
-    </div>
-  </div>
-</section>
-
-<!-- CONFIRMATION -->
-<section class="confirmation">
-  <div class="confirmation-card">
-    <div class="confirmation-icon">✓</div>
-    <h2>Termin erfolgreich angefragt</h2>
-    <p>Deine Anfrage wurde erfasst. Du erhältst rechtzeitig eine Erinnerung.</p>
-
-    <div class="confirmation-badges">
-      <span>📅 Calendly verbunden</span>
-      <span>💬 WhatsApp aktiv</span>
-    </div>
-  </div>
-</section>
-
-<!-- DASHBOARD -->
-<section class="dashboard">
-  <div class="dashboard-card">
-    <h2>Dein nächster Termin</h2>
-    <div class="dashboard-grid">
-      <div class="dashboard-item">
-        <span class="label">Service</span>
-        <span class="value">Herrenhaarschnitt</span>
-      </div>
-      <div class="dashboard-item">
-        <span class="label">Status</span>
-        <span class="value success">Bestätigt ✓</span>
-      </div>
-      <div class="dashboard-item">
-        <span class="label">Erinnerung</span>
-        <span class="value success">WhatsApp · 24h vorher</span>
-      </div>
-      <div class="dashboard-item">
-        <span class="label">Buchung</span>
-        <span class="value">Calendly</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
@@ -187,40 +141,65 @@
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a
-  href="https://wa.me/491717439527"
-  class="whatsapp-float"
-  target="_blank"
->
+<a href="#" id="floatingWhatsApp" class="whatsapp-float" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
 <!-- JS -->
 <script>
-function activateEmailReminder(e) {
-  e.preventDefault();
+let selectedService = "";
+const productMap = {
+  "Haarschnitt": "Styling Pomade, Leave-in Conditioner, Bartöl",
+  "Färben": "Color-Schutz Shampoo, Farbschutz Maske, Hitzeschutzspray",
+  "Bartpflege": "Bartöl, Bartbalsam, Bartshampoo",
+  "Styling": "Styling Cream, Haarspray, Texturizing Spray"
+};
 
-  const email = document.getElementById("emailInput").value;
-  if (!email) return;
+function selectService(service){
+  selectedService = service;
+  document.getElementById("dashboardService")?.innerText = service;
 
-  document.getElementById("emailSuccess").style.display = "block";
+  // WhatsApp Link anpassen
+  const whatsappLink = document.getElementById("whatsappLink");
+  const floatingLink = document.getElementById("floatingWhatsApp");
+  const text = `Hallo Dein Barber, ich habe Service: ${service} gebucht. Bitte sende mir eine Erinnerung 24h vorher. Empfohlene Produkte: ${productMap[service]}`;
+  const encodedText = encodeURIComponent(text);
+  const waNumber = "491234567890"; // Deine Nummer
+  whatsappLink.href = `https://wa.me/${waNumber}?text=${encodedText}`;
+  floatingLink.href = `https://wa.me/${waNumber}?text=${encodedText}`;
 
-  // Timeline aktivieren
-  const timeline = document.querySelectorAll(".email-timeline span");
-  timeline[1].classList.add("active");
+  // Produkte in E-Mail Anzeige vorbereiten
+  const prodDiv = document.getElementById("recommendedProducts");
+  prodDiv.innerText = `Empfohlene Produkte für ${service}: ${productMap[service]}`;
 
-  // Animation: Reminder gesendet
-  setTimeout(()=>timeline[2].classList.add("active"),1000);
-
-  // Optional: localStorage für Demo
-  localStorage.setItem("emailReminder", email);
+  // Live-Vorschau aktualisieren
+  const previewDiv = document.getElementById("messagePreview");
+  previewDiv.innerText = text;
 }
 
-// Fade-in für alle Sections
-const sections=document.querySelectorAll("section");
-const observer=new IntersectionObserver(e=>e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible")),{threshold:.2});
-sections.forEach(s=>observer.observe(s));
-</script>
+function activateEmailReminder(e){
+  e.preventDefault();
+  const email = document.getElementById("emailInput").value;
+  if(!email || !selectedService) return alert("Bitte wähle zuerst einen Service.");
 
+  const success = document.getElementById("emailSuccess");
+  success.style.display = "block";
+
+  const timeline = document.querySelectorAll(".email-timeline span");
+  timeline[1].classList.add("active");
+  setTimeout(()=>timeline[2].classList.add("active"),1000);
+
+  localStorage.setItem("emailReminder", JSON.stringify({email, service:selectedService}));
+}
+
+// Fade-in Animation
+document.querySelectorAll("section").forEach(section=>{
+  new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  },{threshold:0.2}).observe(section);
+});
+</script>
 </body>
 </html>
